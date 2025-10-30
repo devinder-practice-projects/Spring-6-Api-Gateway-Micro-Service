@@ -9,7 +9,10 @@ Major Dependencies Used -
 Spring-6-Question-Micro-Service - Spring web, Postgres SQL Driver, Spring Data JPA, Lombok, Eureka Discovery Client, OpenFeign.
 Spring-6-Quiz-Micro-Service - Spring web, Postgres SQL Driver, Spring Data JPA, Lombok, Eureka Discovery Client, OpenFeign.
 Spring-6-Service-Registry - Spring web, Eureka Server.
-Spring-6-Api-Gateway-Micro-Service - spring-cloud-starter-gateway, Eureka Discovery Client.
+
+spring-cloud-starter-gateway is deprecated.
+Please use spring-cloud-starter-gateway-server-webflux instead.
+Spring-6-Api-Gateway-Micro-Service - spring-cloud-starter-gateway-server-webflux, Eureka Discovery Client.
 
 Spring-6-Question-Micro-Service : This will create a Question Micro Service and will handle all the question rest api's.
 Spring-6-Quiz-Micro-Service : This will create a Quiz Micro Service and will handle all the quiz rest api's.
@@ -27,3 +30,9 @@ a. Run the Server First.
 b. Run the first Micro Service.
 c. Run the Second Micro Service which is calling first microservice.
 d. Then test the apis.
+e. Run the api gateway
+If your Gateway is working, you should be able to hit routes like:
+http://localhost:8765/{service-name}/{endpoint}
+Example:
+If your quiz microservice is registered in Eureka as QUIZ-SERVICE, then you can access:
+http://localhost:8765/question-service/generateQuestions?category=dotnet&numOfQues=3
